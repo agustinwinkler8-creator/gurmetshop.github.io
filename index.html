@@ -1,0 +1,881 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gurmet Shop - Café Orgánico, Aloe Vera y Yerba Mate Premium Argentina</title>
+  <meta name="description" content="Gurmet Shop: productos gourmet premium de Argentina. Café orgánico, jugos de aloe vera orgánicos OKF, café frío RTD, Café Mula y yerba mate Akaguapy. Envíos a CABA y GBA." />
+  <meta name="keywords" content="café orgánico Argentina, aloe vera orgánico, yerba mate artesanal, café premium, jugos naturales, OKF aloe vera, Café Mula, Akaguapy" />
+  <link rel="canonical" href="https://gurmetshop.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #141414;
+      --bg2: #1e1e1e;
+      --bg3: #252525;
+      --fg: #ede8df;
+      --fg2: #a09585;
+      --primary: hsl(25,80%,50%);
+      --primary2: hsl(25,80%,40%);
+      --gold: hsl(43,80%,55%);
+      --organic: hsl(140,60%,40%);
+      --wholesale: hsl(210,70%,55%);
+      --offer: hsl(355,80%,55%);
+      --border: rgba(255,255,255,0.08);
+      --radius: 10px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    h1,h2,h3,h4 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.05em; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+
+    /* HEADER */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      transition: background 0.3s, backdrop-filter 0.3s;
+    }
+    header.scrolled {
+      background: rgba(20,20,20,0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .header-inner {
+      max-width: 1280px; margin: 0 auto; padding: 0 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem; letter-spacing: 0.1em;
+      background: linear-gradient(135deg, hsl(43,80%,55%), hsl(35,90%,65%));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    nav { display: flex; align-items: center; gap: 0.25rem; }
+    nav button {
+      background: none; border: none; cursor: pointer;
+      color: var(--fg2); font-size: 0.875rem; font-weight: 500;
+      padding: 0.5rem 1rem; border-radius: 6px;
+      transition: color 0.2s, background 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    nav button:hover { color: var(--primary); background: rgba(255,255,255,0.05); }
+    .nav-phone {
+      display: flex; align-items: center; gap: 0.4rem;
+      color: var(--primary); font-size: 0.875rem; font-weight: 600;
+      padding: 0.5rem 1rem; text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-phone:hover { opacity: 0.8; }
+    .lang-btn {
+      background: none; border: 1px solid var(--border); cursor: pointer;
+      color: var(--fg); font-size: 0.8rem; padding: 0.3rem 0.7rem;
+      border-radius: 20px; font-family: 'Inter', sans-serif;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .lang-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .burger { display: none; background: none; border: none; cursor: pointer; color: var(--fg); }
+    .mobile-menu {
+      display: none; flex-direction: column;
+      background: rgba(20,20,20,0.98); padding: 0.5rem 0 1rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu button, .mobile-menu a {
+      background: none; border: none; cursor: pointer;
+      color: var(--fg2); font-size: 0.95rem; text-align: left;
+      padding: 0.75rem 1.5rem; text-decoration: none;
+      font-family: 'Inter', sans-serif; display: block;
+      transition: color 0.2s;
+    }
+    .mobile-menu button:hover, .mobile-menu a:hover { color: var(--primary); }
+
+    /* HERO */
+    #inicio {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      text-align: center; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, hsl(25,80%,10%), #141414 60%, hsl(10,50%,10%));
+    }
+    .hero-glow {
+      position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none;
+    }
+    .hero-glow-1 {
+      width: 400px; height: 400px; top: 5%; left: 5%;
+      background: hsl(25,80%,50%); opacity: 0.06;
+    }
+    .hero-glow-2 {
+      width: 500px; height: 500px; bottom: 5%; right: 5%;
+      background: hsl(10,70%,45%); opacity: 0.06;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 900px; padding: 0 1.5rem; }
+    #hero-title {
+      font-size: clamp(3rem, 10vw, 8rem); line-height: 1;
+      background: linear-gradient(135deg, hsl(43,80%,55%), hsl(35,90%,65%));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; margin-bottom: 1.5rem;
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    #hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--fg2);
+      max-width: 600px; margin: 0 auto 2.5rem;
+      animation: fadeInUp 0.8s 0.2s ease-out both;
+    }
+    .hero-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--primary); color: #fff;
+      border: none; cursor: pointer; font-family: 'Inter', sans-serif;
+      font-size: 1.1rem; font-weight: 600; padding: 1rem 2.5rem;
+      border-radius: 50px; transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 30px rgba(204,102,0,0.35);
+      animation: fadeInUp 0.8s 0.4s ease-out both;
+    }
+    .hero-btn:hover { transform: scale(1.05); box-shadow: 0 12px 40px rgba(204,102,0,0.5); }
+    .hero-btn svg { animation: bounce 1.5s infinite; }
+    .hero-fade {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+      background: linear-gradient(to top, var(--bg), transparent);
+    }
+
+    /* PRODUCTS */
+    #productos { padding: 5rem 0; background: var(--bg); }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+    .section-title {
+      font-size: clamp(2.5rem, 6vw, 4rem); text-align: center;
+      background: linear-gradient(135deg, hsl(43,80%,55%), hsl(35,90%,65%));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; margin-bottom: 2rem;
+    }
+
+    /* Offer banner */
+    .offer-banner {
+      position: relative; overflow: hidden;
+      background: linear-gradient(135deg, var(--offer), hsl(355,90%,40%));
+      border-radius: var(--radius); padding: 1.5rem 2rem;
+      text-align: center; margin-bottom: 1.5rem;
+    }
+    .offer-banner::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      background-size: 200% 100%;
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    .offer-title {
+      font-size: clamp(1.5rem, 4vw, 2.2rem); color: #fff;
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    }
+    .offer-text { color: rgba(255,255,255,0.9); font-weight: 500; margin-top: 0.4rem; }
+
+    /* Delivery */
+    .delivery-bar {
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.75rem; margin-bottom: 3rem;
+      background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.25);
+      border-radius: var(--radius); color: var(--wholesale); font-weight: 600;
+    }
+
+    /* Category */
+    .category-block { margin-bottom: 4rem; }
+    .category-header {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 1rem 1.25rem; border-radius: var(--radius) var(--radius) 0 0;
+      background: linear-gradient(to right, rgba(204,102,0,0.15), transparent);
+      border-left: 4px solid var(--primary); margin-bottom: 0.75rem;
+    }
+    .category-header h3 { font-size: clamp(1.2rem, 3vw, 1.8rem); color: var(--fg); }
+    .category-bulk {
+      text-align: center; padding: 0.6rem 1rem; margin-bottom: 1.5rem;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); font-size: 0.875rem; color: var(--fg2);
+    }
+    .products-grid {
+      display: grid; gap: 1.25rem;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+
+    /* Product Card */
+    .product-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden; cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex; flex-direction: column;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(204,102,0,0.25), 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .card-img {
+      height: 200px; background: var(--bg3);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .card-img-placeholder {
+      font-size: 4rem; opacity: 0.3;
+    }
+    .card-badge {
+      position: absolute; top: 0.75rem; right: 0.75rem;
+      padding: 0.2rem 0.75rem; border-radius: 20px;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em;
+    }
+    .badge-organic { background: var(--organic); color: #fff; }
+    .badge-primary { background: var(--primary); color: #fff; }
+    .badge-accent { background: hsl(10,70%,45%); color: #fff; }
+    .badge-gold { background: var(--gold); color: #111; }
+    .card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+    .card-name { font-size: 1.1rem; color: var(--fg); margin-bottom: 0.4rem; }
+    .card-desc { font-size: 0.8rem; color: var(--fg2); flex: 1; margin-bottom: 0.75rem; }
+    .card-presentation {
+      display: inline-block; font-size: 0.7rem; padding: 0.15rem 0.5rem;
+      background: rgba(34,197,94,0.15); color: var(--organic);
+      border-radius: 4px; font-weight: 600; margin-bottom: 0.75rem;
+    }
+    .card-price { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+    .card-price-unit { font-size: 0.8rem; color: var(--fg2); font-weight: 400; margin-left: 0.25rem; }
+    .card-wholesale {
+      margin-top: 0.6rem; padding-top: 0.6rem;
+      border-top: 1px solid var(--border);
+    }
+    .card-wholesale-price { font-size: 1.1rem; font-weight: 700; color: var(--wholesale); }
+    .card-wholesale-badge {
+      display: inline-block; margin-top: 0.3rem;
+      padding: 0.15rem 0.5rem; font-size: 0.7rem; font-weight: 600;
+      background: rgba(59,130,246,0.15); color: var(--wholesale); border-radius: 4px;
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,0.75); display: none;
+      align-items: flex-start; justify-content: flex-end;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--bg2); width: 100%; max-width: 480px;
+      height: 100vh; overflow-y: auto;
+      transform: translateX(100%); transition: transform 0.3s ease;
+      padding: 2rem; position: relative;
+    }
+    .modal-overlay.open .modal { transform: translateX(0); }
+    .modal-close {
+      position: absolute; top: 1rem; right: 1rem;
+      background: var(--bg3); border: 1px solid var(--border);
+      color: var(--fg); cursor: pointer; border-radius: 6px;
+      width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; transition: background 0.2s;
+    }
+    .modal-close:hover { background: var(--border); }
+    .modal-name {
+      font-size: 2rem; margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, hsl(43,80%,55%), hsl(35,90%,65%));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; padding-right: 2rem;
+    }
+    .modal-desc { color: var(--fg2); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .modal-img {
+      width: 100%; height: 220px; background: var(--bg3);
+      border-radius: var(--radius); display: flex;
+      align-items: center; justify-content: center;
+      font-size: 6rem; margin-bottom: 1.5rem;
+    }
+    .price-tabs {
+      display: flex; border: 1px solid var(--border);
+      border-radius: 30px; overflow: hidden; margin-bottom: 1.25rem;
+    }
+    .price-tab {
+      flex: 1; padding: 0.5rem; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.85rem;
+      background: none; color: var(--fg2); transition: all 0.2s;
+    }
+    .price-tab.active-retail { background: var(--primary); color: #fff; }
+    .price-tab.active-wholesale { background: var(--wholesale); color: #fff; }
+    .modal-price-block {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1rem; margin-bottom: 1.5rem;
+    }
+    .modal-price { font-size: 2.5rem; font-weight: 700; color: var(--primary); }
+    .modal-wholesale-note {
+      margin-top: 0.75rem; padding: 0.75rem;
+      background: rgba(59,130,246,0.08); border-left: 2px solid var(--wholesale);
+      border-radius: 4px; color: var(--wholesale); font-size: 0.85rem;
+    }
+    .modal-section-title { font-size: 1.3rem; margin-bottom: 0.75rem; color: var(--fg); }
+    .char-list { list-style: none; margin-bottom: 1.5rem; }
+    .char-list li {
+      display: flex; align-items: flex-start; gap: 0.5rem;
+      font-size: 0.875rem; color: var(--fg2); padding: 0.3rem 0;
+    }
+    .char-list li::before { content: '✓'; color: var(--organic); flex-shrink: 0; font-weight: 700; }
+    .modal-ingredients { font-size: 0.85rem; color: var(--fg2); line-height: 1.7; margin-bottom: 1.5rem; }
+    .call-btn {
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      width: 100%; padding: 0.9rem; border-radius: 50px;
+      background: var(--primary); color: #fff; text-decoration: none;
+      font-family: 'Inter', sans-serif; font-weight: 700;
+      border: none; font-size: 1rem;
+      box-shadow: 0 6px 24px rgba(204,102,0,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .call-btn:hover { transform: scale(1.02); box-shadow: 0 10px 30px rgba(204,102,0,0.5); }
+    .call-note { text-align: center; font-size: 0.75rem; color: var(--fg2); margin-top: 0.5rem; }
+
+    /* ABOUT */
+    #nosotros { padding: 5rem 0; background: var(--bg2); }
+    .about-text { text-align: center; max-width: 700px; margin: 0 auto 3rem; }
+    .about-lead { font-size: 1.1rem; color: var(--fg); font-weight: 500; margin-bottom: 1rem; }
+    .about-p { color: var(--fg2); margin-bottom: 0.75rem; }
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.25rem; }
+    .value-card {
+      text-align: center; padding: 2rem 1.25rem;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius); transition: transform 0.3s;
+    }
+    .value-card:hover { transform: translateY(-4px); }
+    .value-icon {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: rgba(204,102,0,0.1); margin: 0 auto 1rem;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+    }
+    .value-name { font-size: 1rem; color: var(--fg); margin-bottom: 0.4rem; }
+    .value-desc { font-size: 0.8rem; color: var(--fg2); }
+
+    /* CONTACT */
+    #contacto { padding: 5rem 0; background: var(--bg); }
+    .phone-highlight {
+      max-width: 480px; margin: 0 auto 3rem;
+      text-align: center; padding: 2.5rem 2rem;
+      background: var(--bg2); border: 1px solid rgba(204,102,0,0.2);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 32px rgba(204,102,0,0.15);
+    }
+    .phone-label { font-size: 1.5rem; color: var(--fg); margin-bottom: 0.75rem; }
+    .phone-number {
+      display: block; font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem; color: var(--primary); text-decoration: none;
+      letter-spacing: 0.05em; transition: opacity 0.2s;
+    }
+    .phone-number:hover { opacity: 0.8; }
+    .phone-note { font-size: 0.9rem; color: var(--fg2); margin-top: 0.75rem; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 800px; margin: 0 auto; }
+    .contact-info, .contact-form {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.75rem;
+    }
+    .contact-info h3, .contact-form h3 { font-size: 1.5rem; margin-bottom: 1.25rem; }
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      margin-bottom: 1rem; font-size: 0.875rem; color: var(--fg2);
+    }
+    .contact-icon { color: var(--primary); margin-top: 2px; flex-shrink: 0; }
+    .form-input {
+      width: 100%; padding: 0.65rem 0.85rem; margin-bottom: 0.85rem;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 6px; color: var(--fg); font-family: 'Inter', sans-serif;
+      font-size: 0.9rem; outline: none; transition: border-color 0.2s;
+    }
+    .form-input:focus { border-color: var(--primary); }
+    .form-input::placeholder { color: var(--fg2); }
+    textarea.form-input { min-height: 100px; resize: vertical; }
+    .form-btn {
+      width: 100%; padding: 0.8rem; border-radius: 50px;
+      background: var(--primary); color: #fff; border: none;
+      font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.95rem;
+      cursor: pointer; transition: opacity 0.2s;
+    }
+    .form-btn:hover { opacity: 0.9; }
+    .toast-msg {
+      display: none; padding: 0.75rem 1rem; margin-top: 0.75rem;
+      background: rgba(34,197,94,0.15); border: 1px solid var(--organic);
+      border-radius: 6px; color: var(--organic); font-size: 0.875rem;
+      text-align: center;
+    }
+    .toast-msg.show { display: block; }
+
+    /* FOOTER */
+    footer {
+      padding: 3rem 0; border-top: 1px solid var(--border);
+      background: linear-gradient(135deg, #0a0a0a, #141414);
+    }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+    .footer-brand { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .footer-desc { font-size: 0.85rem; color: var(--fg2); }
+    .footer-col h4 { font-size: 1rem; margin-bottom: 1rem; color: var(--fg); }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 0.5rem; }
+    .footer-links a { color: var(--fg2); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--primary); }
+    .footer-contact-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--fg2); margin-bottom: 0.5rem; }
+    .footer-zone { color: var(--organic); font-size: 0.8rem; }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 1.5rem; text-align: center; font-size: 0.78rem; color: var(--fg2); }
+
+    /* WHATSAPP */
+    .whatsapp-btn {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 150;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--organic); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; font-size: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      transition: transform 0.2s;
+      animation: whatsappPulse 2s ease-in-out infinite;
+    }
+    .whatsapp-btn:hover { transform: scale(1.12); }
+
+    /* ANIMATIONS */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(5px); }
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    @keyframes whatsappPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5), 0 4px 20px rgba(0,0,0,0.4); }
+      50% { box-shadow: 0 0 0 12px rgba(34,197,94,0), 0 4px 20px rgba(0,0,0,0.4); }
+    }
+
+    /* Scroll animations */
+    .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal.d1 { transition-delay: 0.1s; }
+    .reveal.d2 { transition-delay: 0.2s; }
+    .reveal.d3 { transition-delay: 0.3s; }
+    .reveal.d4 { transition-delay: 0.4s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .burger { display: block; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .phone-number { font-size: 2.5rem; }
+      .modal { max-width: 100%; }
+    }
+    @media (max-width: 480px) {
+      .products-grid { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="header-inner">
+    <div class="logo">GURMET SHOP</div>
+    <nav>
+      <button onclick="scrollTo('inicio')">Inicio</button>
+      <button onclick="scrollTo('productos')">Productos</button>
+      <button onclick="scrollTo('nosotros')">Nosotros</button>
+      <button onclick="scrollTo('contacto')">Contacto</button>
+      <a href="tel:+541134239865" class="nav-phone">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.41 2 2 0 0 1 3.6 2.23h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.14 6.14l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        11 3423-9865
+      </a>
+      <button class="lang-btn" onclick="toggleLang()">EN</button>
+    </nav>
+    <button class="burger" onclick="toggleMenu()" aria-label="Menú">
+      <svg id="burger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <button onclick="scrollTo('inicio');closeMenu()">Inicio</button>
+    <button onclick="scrollTo('productos');closeMenu()">Productos</button>
+    <button onclick="scrollTo('nosotros');closeMenu()">Nosotros</button>
+    <button onclick="scrollTo('contacto');closeMenu()">Contacto</button>
+    <a href="tel:+541134239865">📞 11 3423-9865</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="inicio">
+  <div class="hero-glow hero-glow-1"></div>
+  <div class="hero-glow hero-glow-2"></div>
+  <div class="hero-content">
+    <h1 id="hero-title">Productos Premium<br>de Argentina</h1>
+    <p id="hero-sub">Calidad excepcional en cafés, jugos de aloe vera orgánicos y yerba mate artesanal.</p>
+    <button class="hero-btn" onclick="scrollTo('productos')">
+      Ver Productos
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19,12 12,19 5,12"/></svg>
+    </button>
+  </div>
+  <div class="hero-fade"></div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="productos">
+  <div class="container">
+    <h2 class="section-title reveal">Nuestros Productos</h2>
+
+    <div class="offer-banner reveal">
+      <div class="offer-title">🎁 ¡OFERTA ESPECIAL!</div>
+      <div class="offer-text">40% DE REINTEGRO CON CTA DNI — TOPE $6.000 — TODOS LOS DÍAS</div>
+    </div>
+
+    <div class="delivery-bar reveal">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16,8 20,8 23,11 23,16 16,16 16,8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      ¡CONSULTÁ TU ZONA DE ENTREGA!
+    </div>
+
+    <!-- ALOE -->
+    <div class="category-block reveal">
+      <div class="category-header">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#cc6600" stroke-width="2"><path d="M8 22h8m-4-4v4M12 4C8 4 4 8 4 12c0 4.4 3.6 8 8 8s8-3.6 8-8c0-4-4-8-8-8z"/></svg>
+        <h3>OKF - Jugos de Aloe Vera Orgánicos</h3>
+      </div>
+      <div class="category-bulk">¡PRECIOS MAYORISTAS! Jugos: $4.000 por unidad (precio individual $5.100)</div>
+      <div class="products-grid" id="grid-aloe"></div>
+    </div>
+
+    <!-- COFFEE -->
+    <div class="category-block reveal">
+      <div class="category-header">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#cc6600" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        <h3>OKF COFFEE - Cafés Fríos RTD</h3>
+      </div>
+      <div class="category-bulk">¡CAFÉ FRÍO LISTO PARA TOMAR! Premium Quality Coffee — Granos 100% Arábicos de Brasil</div>
+      <div class="products-grid" id="grid-coffee"></div>
+    </div>
+
+    <!-- CAFE MULA -->
+    <div class="category-block reveal">
+      <div class="category-header">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#cc6600" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        <h3>CAFÉ MULA - Cafés Premium</h3>
+      </div>
+      <div class="category-bulk">¡PRECIOS MAYORISTAS! Café: $8.500 por unidad (precio individual $13.000)</div>
+      <div class="products-grid" id="grid-cafeMula"></div>
+    </div>
+
+    <!-- YERBA MATE -->
+    <div class="category-block reveal">
+      <div class="category-header">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#cc6600" stroke-width="2"><path d="M17 8C8 10 5.9 16.17 3.82 22M9.34 14.3C9.77 14.11 10.18 13.87 10.5 13.5c2.5-3 5.5-4 7.5-4M5 22V12C5 7 9 3 14 3c1 0 1.5.25 1.5.25"/></svg>
+        <h3>YERBA MATE AKAGUAPY</h3>
+      </div>
+      <div class="category-bulk">¡PRECIOS MAYORISTAS! Yerba: $4.000 por unidad (precio individual $5.000)</div>
+      <div class="products-grid" id="grid-yerbaMate"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="nosotros">
+  <div class="container">
+    <h2 class="section-title reveal">Sobre Gurmet Shop</h2>
+    <div class="about-text reveal">
+      <p class="about-lead">Somos una empresa argentina dedicada a seleccionar los mejores productos gourmet de nuestro país.</p>
+      <p class="about-p">Desde 2010, nuestra misión es llevar a tu hogar productos de la más alta calidad que representen lo mejor de nuestras tierras y tradiciones.</p>
+      <p class="about-p">Creemos en el comercio justo y sostenible. Trabajamos directamente con productores locales para garantizar la calidad y autenticidad de cada producto.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card reveal d1">
+        <div class="value-icon">🚚</div>
+        <div class="value-name">Entregas rápidas</div>
+        <div class="value-desc">Consultá tu zona</div>
+      </div>
+      <div class="value-card reveal d2">
+        <div class="value-icon">🏆</div>
+        <div class="value-name">Calidad garantizada</div>
+        <div class="value-desc">Productos seleccionados</div>
+      </div>
+      <div class="value-card reveal d3">
+        <div class="value-icon">🌿</div>
+        <div class="value-name">100% Natural</div>
+        <div class="value-desc">Sin aditivos artificiales</div>
+      </div>
+      <div class="value-card reveal d4">
+        <div class="value-icon">❤️</div>
+        <div class="value-name">Apoyo local</div>
+        <div class="value-desc">Comercio justo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contacto">
+  <div class="container">
+    <h2 class="section-title reveal">Contacto</h2>
+    <div class="phone-highlight reveal">
+      <div class="phone-label">Contacto Directo</div>
+      <a href="tel:+541134239865" class="phone-number">11 3423-9865</a>
+      <p class="phone-note">Verónica — Atención personalizada de lunes a viernes</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h3>Información</h3>
+        <div class="contact-item">
+          <span class="contact-icon">📍</span>
+          <span>Consultá tu zona de entrega con Verónica al 11 3423-9865</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">🕐</span>
+          <span>Lunes a Viernes: 9:00 - 18:00</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">🚚</span>
+          <span>Entregas en el día para CABA y GBA (consultar disponibilidad)</span>
+        </div>
+      </div>
+      <div class="contact-form reveal">
+        <h3>Escribinos</h3>
+        <input class="form-input" type="text" placeholder="Nombre completo" id="f-name" required>
+        <input class="form-input" type="email" placeholder="Correo electrónico" id="f-email" required>
+        <input class="form-input" type="tel" placeholder="Teléfono" id="f-phone" required>
+        <textarea class="form-input" placeholder="Mensaje" id="f-msg" required></textarea>
+        <button class="form-btn" onclick="submitForm()">Enviar mensaje</button>
+        <div class="toast-msg" id="form-toast">¡Gracias por tu consulta! Nos pondremos en contacto a la brevedad.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo footer-brand">GURMET SHOP</div>
+        <p class="footer-desc">Los mejores productos gourmet de Argentina directamente en tu hogar. Calidad y tradición.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Enlaces rápidos</h4>
+        <ul class="footer-links">
+          <li><a href="#inicio" onclick="scrollTo('inicio')">Inicio</a></li>
+          <li><a href="#productos" onclick="scrollTo('productos')">Productos</a></li>
+          <li><a href="#nosotros" onclick="scrollTo('nosotros')">Nosotros</a></li>
+          <li><a href="#contacto" onclick="scrollTo('contacto')">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto Directo</h4>
+        <div class="footer-contact-item">📞 Verónica — 11 3423-9865</div>
+        <div class="footer-contact-item">🕐 Lun-Vie 9:00-18:00</div>
+        <div style="margin-top:1rem">
+          <div style="font-size:0.85rem;color:var(--fg2);margin-bottom:0.5rem">Zonas de entrega:</div>
+          <div class="footer-zone">✓ CABA</div>
+          <div class="footer-zone">✓ Gran Buenos Aires</div>
+          <div class="footer-zone">✓ Interior (consultar)</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Gurmet Shop. Todos los derechos reservados.</p>
+      <p style="margin-top:0.25rem">Productos seleccionados con pasión, entregados con calidad.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/541134239865?text=Hola%20Ver%C3%B3nica!%20Me%20interesa%20conocer%20m%C3%A1s%20sobre%20los%20productos%20de%20Gurmet%20Shop." target="_blank" rel="noopener" class="whatsapp-btn" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+</a>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModalBtn()">✕</button>
+    <h2 class="modal-name" id="modal-name"></h2>
+    <p class="modal-desc" id="modal-desc"></p>
+    <div class="modal-img" id="modal-img">🧃</div>
+    <div id="modal-price-tabs"></div>
+    <div class="modal-price-block">
+      <div class="modal-price" id="modal-price"></div>
+      <div id="modal-box-info" style="font-size:0.85rem;color:var(--fg2);margin-top:0.25rem"></div>
+      <div id="modal-wholesale-note" class="modal-wholesale-note" style="display:none"></div>
+    </div>
+    <div class="modal-section-title">Características principales</div>
+    <ul class="char-list" id="modal-chars"></ul>
+    <div class="modal-section-title">Ingredientes</div>
+    <p class="modal-ingredients" id="modal-ingredients"></p>
+    <a href="tel:+541134239865" class="call-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.41 2 2 0 0 1 3.6 2.23h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.14 6.14l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Llamar a Verónica al 11 3423-9865
+    </a>
+    <p class="call-note">Consultá disponibilidad, precios mayoristas y zona de entrega</p>
+  </div>
+</div>
+
+<script>
+// PRODUCTS DATA
+const products = [
+  { id:'aloe-sandia', name:'Aloe Vera King Sandía', desc:'Bebida dulce y refrescante de aloe vera orgánico con sabor a sandía', emoji:'🍉', price:'$5.100', wholesalePrice:'$4.000', wholesaleMinQty:10, wholesaleText:'Precio mayorista: $4.000 por unidad (mínimo 10 unidades)', presentation:'500ml', boxInfo:'Caja x 12 unidades', category:'aloe', badge:'ORGÁNICO', badgeColor:'organic', chars:['SIN CONSERVANTES AÑADIDOS','Aloe orgánico','Sin ingeniería genética','SIN COLORANTES ARTIFICIALES','SIN GLUTEN / SIN GRASA'], ingredients:'Aloe vera orgánico, agua purificada, azúcar de caña orgánico, jugo concentrado de sandía, acidulante (ácido cítrico), estabilizante (goma xantana).' },
+  { id:'aloe-mango', name:'Aloe Vera King Mango', desc:'Bebida dulce y refrescante de aloe vera orgánico con sabor a mango', emoji:'🥭', price:'$5.100', wholesalePrice:'$4.000', wholesaleMinQty:10, wholesaleText:'Precio mayorista: $4.000 por unidad (mínimo 10 unidades)', presentation:'500ml', boxInfo:'Caja x 12 unidades', category:'aloe', badge:'ORGÁNICO', badgeColor:'organic', chars:['SIN CONSERVANTES AÑADIDOS','Aloe orgánico','Sin ingeniería genética','SIN COLORANTES ARTIFICIALES','SIN GLUTEN / SIN GRASA'], ingredients:'Aloe vera orgánico, agua purificada, azúcar de caña orgánico, jugo concentrado de mango, acidulante (ácido cítrico), estabilizante (goma xantana).' },
+  { id:'aloe-kiwi', name:'Aloe Vera King Gold Kiwi', desc:'Bebida dulce y refrescante de aloe vera orgánico con sabor a kiwi dorado', emoji:'🥝', price:'$5.100', wholesalePrice:'$4.000', wholesaleMinQty:10, wholesaleText:'Precio mayorista: $4.000 por unidad (mínimo 10 unidades)', presentation:'500ml', boxInfo:'Caja x 12 unidades', category:'aloe', badge:'ORGÁNICO', badgeColor:'organic', chars:['SIN CONSERVANTES AÑADIDOS','Aloe orgánico','Sin ingeniería genética','SIN COLORANTES ARTIFICIALES','SIN GLUTEN / SIN GRASA'], ingredients:'Aloe vera orgánico, agua purificada, azúcar de caña orgánico, jugo concentrado de kiwi, acidulante (ácido cítrico), estabilizante (goma xantana).' },
+  { id:'aloe-frutilla', name:'Aloe Vera King Frutilla', desc:'Bebida dulce y refrescante de aloe vera orgánico con sabor a frutilla', emoji:'🍓', price:'$5.100', wholesalePrice:'$4.000', wholesaleMinQty:10, wholesaleText:'Precio mayorista: $4.000 por unidad (mínimo 10 unidades)', presentation:'500ml', boxInfo:'Caja x 12 unidades', category:'aloe', badge:'ORGÁNICO', badgeColor:'organic', chars:['SIN CONSERVANTES AÑADIDOS','Aloe orgánico','Sin ingeniería genética','SIN COLORANTES ARTIFICIALES','SIN GLUTEN / SIN GRASA'], ingredients:'Aloe vera orgánico, agua purificada, azúcar de caña orgánico, jugo concentrado de frutilla, acidulante (ácido cítrico), estabilizante (goma xantana).' },
+  { id:'aloe-arandanos', name:'Aloe Vera King Arándanos', desc:'Bebida dulce y refrescante de aloe vera orgánico con sabor a arándanos', emoji:'🫐', price:'$5.100', wholesalePrice:'$4.000', wholesaleMinQty:10, wholesaleText:'Precio mayorista: $4.000 por unidad (mínimo 10 unidades)', presentation:'500ml', boxInfo:'Caja x 12 unidades', category:'aloe', badge:'ORGÁNICO', badgeColor:'organic', chars:['SIN CONSERVANTES AÑADIDOS','Aloe orgánico','Sin ingeniería genética','SIN COLORANTES ARTIFICIALES','SIN GLUTEN / SIN GRASA'], ingredients:'Aloe vera orgánico, agua purificada, azúcar de caña orgánico, jugo concentrado de arándanos, acidulante (ácido cítrico), estabilizante (goma xantana).' },
+  { id:'aloe-original', name:'Aloe Vera King Original', desc:'Bebida dulce y refrescante de aloe vera orgánico sabor original', emoji:'🌿', price:'$5.100', wholesalePrice:'$4.000', wholesaleMinQty:10, wholesaleText:'Precio mayorista: $4.000 por unidad (mínimo 10 unidades)', presentation:'500ml', boxInfo:'Caja x 12 unidades', category:'aloe', badge:'ORGÁNICO', badgeColor:'organic', chars:['SIN CONSERVANTES AÑADIDOS','Aloe orgánico','Sin ingeniería genética','SIN COLORANTES ARTIFICIALES','SIN GLUTEN / SIN GRASA'], ingredients:'Aloe vera orgánico, agua purificada, azúcar de caña orgánico, acidulante (ácido cítrico), estabilizante (goma xantana).' },
+  { id:'cafe-caramelo', name:'OKF Café Caramelo', desc:'Delicioso café con sabor a caramelo. Un toque dulce y sofisticado.', emoji:'☕', price:'$3.500', presentation:'240ml', boxInfo:'Lata 240ml | Caja x 30 unidades', category:'coffee', badge:'RTD', badgeColor:'primary', shelfLife:'24', chars:['Ready to Drink (RTD)','Granos 100% Arábicos de Brasil','Premium Quality Coffee','Vida útil: 24 meses','Con sabor a caramelo'], ingredients:'Café 100% arábica de Brasil, leche, azúcar, sabor a caramelo, agua purificada, estabilizantes.' },
+  { id:'cappuccino', name:'OKF Cappuccino', desc:'Clásico cappuccino frío. Equilibrado y refrescante, ideal para coffee lovers.', emoji:'☕', price:'$3.500', presentation:'240ml', boxInfo:'Lata 240ml | Caja x 30 unidades', category:'coffee', badge:'RTD', badgeColor:'primary', shelfLife:'24', chars:['Ready to Drink (RTD)','Granos 100% Arábicos de Brasil','Premium Quality Coffee','Vida útil: 24 meses','For coffee lovers'], ingredients:'Café 100% arábica de Brasil, leche, azúcar, agua purificada, estabilizantes.' },
+  { id:'cafe-mocha', name:'OKF Café Mocha', desc:'Café con chocolate. Una combinación irresistible y energizante.', emoji:'🍫', price:'$3.500', presentation:'240ml', boxInfo:'Lata 240ml | Caja x 30 unidades', category:'coffee', badge:'RTD', badgeColor:'primary', shelfLife:'24', chars:['Ready to Drink (RTD)','Granos 100% Arábicos de Brasil','Premium Quality Coffee','Vida útil: 24 meses','For an energy boost'], ingredients:'Café 100% arábica de Brasil, leche, chocolate, azúcar, agua purificada, estabilizantes.' },
+  { id:'cafe-intenso', name:'Café Mula Intenso', desc:'Café premium de alta calidad, aroma intenso y sabor único', emoji:'☕', price:'$13.000', wholesalePrice:'$8.500', wholesaleMinQty:5, wholesaleText:'Precio mayorista: $8.500 por unidad (mínimo 5 unidades)', presentation:'500g', category:'cafeMula', badge:'PREMIUM', badgeColor:'gold', chars:['100% Arábica','Tueste Oscuro','Aroma Intenso','Sabor Robusto','El que no pide permiso'], ingredients:'100% granos de café arábica seleccionados y tostados en grado oscuro.' },
+  { id:'cafe-equilibrado', name:'Café Mula Equilibrado', desc:'Café premium de equilibrio perfecto, aroma suave y cuerpo medio', emoji:'☕', price:'$13.000', wholesalePrice:'$8.500', wholesaleMinQty:5, wholesaleText:'Precio mayorista: $8.500 por unidad (mínimo 5 unidades)', presentation:'500g', category:'cafeMula', badge:'EQUILIBRADO', badgeColor:'primary', chars:['100% Arábica','Tueste Medio','Aroma Suave','Cuerpo Medio','El conciliador que lo resuelve todo'], ingredients:'100% granos de café arábica seleccionados y tostados en grado medio.' },
+  { id:'cafe-suave', name:'Café Mula Suave', desc:'Café premium de sabor suave y delicado, aroma fresco', emoji:'☕', price:'$13.000', wholesalePrice:'$8.500', wholesaleMinQty:5, wholesaleText:'Precio mayorista: $8.500 por unidad (mínimo 5 unidades)', presentation:'500g', category:'cafeMula', badge:'SUAVE', badgeColor:'accent', chars:['100% Arábica','Tueste Claro','Aroma Fresco','Sabor Suave','El que no pide disculpas'], ingredients:'100% granos de café arábica seleccionados y tostados en grado claro.' },
+  { id:'yerba-mate', name:'Yerba Mate Akaguapy', desc:'Yerba mate artesanal con sabor suave y energizante', emoji:'🧉', price:'$5.000', wholesalePrice:'$4.000', wholesaleMinQty:10, wholesaleText:'Precio mayorista: $4.000 por unidad (mínimo 10 unidades)', presentation:'500g', category:'yerbaMate', badge:'ARTESANAL', badgeColor:'organic', chars:['ARTESANAL','ENERGIZANTE','SIN POLVO','SABOR SUAVE'], ingredients:'Yerba mate 100% natural, seleccionada y procesada artesanalmente.' },
+];
+
+// Render products
+function renderProducts() {
+  ['aloe','coffee','cafeMula','yerbaMate'].forEach(cat => {
+    const grid = document.getElementById('grid-'+cat);
+    const catProds = products.filter(p => p.category === cat);
+    grid.innerHTML = catProds.map(p => `
+      <div class="product-card" onclick="openModal('${p.id}')">
+        <div class="card-img">
+          <span class="card-img-placeholder">${p.emoji}</span>
+          <span class="card-badge badge-${p.badgeColor}">${p.badge}</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-name">${p.name}</h3>
+          <p class="card-desc">${p.desc}</p>
+          <span class="card-presentation">${p.presentation}</span>
+          <div class="mt-auto">
+            <span class="card-price">${p.price}<span class="card-price-unit">/ unidad</span></span>
+            ${p.wholesalePrice ? `
+            <div class="card-wholesale">
+              <span class="card-wholesale-price">${p.wholesalePrice}</span>
+              <span style="font-size:0.75rem;color:var(--fg2)"> x mayor (mín. ${p.wholesaleMinQty} u)</span>
+              <div><span class="card-wholesale-badge">Precio mayorista</span></div>
+            </div>` : ''}
+            ${p.boxInfo ? `<div style="font-size:0.75rem;color:var(--fg2);margin-top:0.4rem">${p.boxInfo}</div>` : ''}
+            ${p.shelfLife ? `<div style="font-size:0.75rem;color:var(--fg2)">Vida útil: ${p.shelfLife} meses</div>` : ''}
+          </div>
+        </div>
+      </div>
+    `).join('');
+  });
+}
+
+// MODAL
+let currentProduct = null;
+let priceView = 'retail';
+
+function openModal(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+  currentProduct = p;
+  priceView = 'retail';
+
+  document.getElementById('modal-name').textContent = p.name;
+  document.getElementById('modal-desc').textContent = p.desc;
+  document.getElementById('modal-img').textContent = p.emoji;
+  document.getElementById('modal-chars').innerHTML = p.chars.map(c => `<li>${c}</li>`).join('');
+  document.getElementById('modal-ingredients').textContent = p.ingredients;
+  document.getElementById('modal-box-info').textContent = p.boxInfo || '';
+
+  if (p.wholesalePrice) {
+    document.getElementById('modal-price-tabs').innerHTML = `
+      <div class="price-tabs">
+        <button class="price-tab active-retail" id="tab-retail" onclick="setPriceView('retail')">Precio Individual</button>
+        <button class="price-tab" id="tab-wholesale" onclick="setPriceView('wholesale')">Precio Mayorista</button>
+      </div>`;
+  } else {
+    document.getElementById('modal-price-tabs').innerHTML = '';
+  }
+  updateModalPrice();
+
+  const overlay = document.getElementById('modal-overlay');
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function updateModalPrice() {
+  const p = currentProduct;
+  if (!p) return;
+  const isWholesale = priceView === 'wholesale' && p.wholesalePrice;
+  document.getElementById('modal-price').textContent = isWholesale ? p.wholesalePrice : p.price;
+  const note = document.getElementById('modal-wholesale-note');
+  if (isWholesale && p.wholesaleText) {
+    note.textContent = p.wholesaleText;
+    note.style.display = 'block';
+  } else { note.style.display = 'none'; }
+}
+
+function setPriceView(view) {
+  priceView = view;
+  document.getElementById('tab-retail').className = 'price-tab' + (view==='retail'?' active-retail':'');
+  document.getElementById('tab-wholesale').className = 'price-tab' + (view==='wholesale'?' active-wholesale':'');
+  updateModalPrice();
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModalBtn();
+}
+function closeModalBtn() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// HEADER SCROLL
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// SMOOTH SCROLL
+function scrollTo(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+// MOBILE MENU
+function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+function closeMenu() { document.getElementById('mobile-menu').classList.remove('open'); }
+
+// LANG toggle (simple placeholder)
+let lang = 'es';
+function toggleLang() {
+  lang = lang === 'es' ? 'en' : 'es';
+  document.querySelector('.lang-btn').textContent = lang === 'es' ? 'EN' : 'ES';
+}
+
+// FORM
+function submitForm() {
+  const n = document.getElementById('f-name').value;
+  const e = document.getElementById('f-email').value;
+  const p = document.getElementById('f-phone').value;
+  const m = document.getElementById('f-msg').value;
+  if (!n || !e || !p || !m) return;
+  document.getElementById('f-name').value = '';
+  document.getElementById('f-email').value = '';
+  document.getElementById('f-phone').value = '';
+  document.getElementById('f-msg').value = '';
+  const toast = document.getElementById('form-toast');
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 4000);
+}
+
+// SCROLL ANIMATIONS
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// INIT
+renderProducts();
+
+// Re-observe after render
+setTimeout(() => {
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}, 100);
+</script>
+</body>
+</html>
