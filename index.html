@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spider-Man: Brand New Day | Sitio de fans no oficial</title>
+<meta name="description" content="Sitio no oficial de fans de Spider-Man: Brand New Day (2026): reparto, expedientes de villanos, tráiler oficial y cuenta regresiva para el estreno del 31 de julio.">
+<meta name="theme-color" content="#0b0c0e">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Spider-Man: Brand New Day | Sitio de fans">
+<meta property="og:description" content="Todo sobre Spider-Man: Brand New Day — reparto, villanos, tráiler y cuenta regresiva al estreno del 31 de julio de 2026.">
+<meta property="og:locale" content="es_LA">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="night">
+
+<a class="skip-link" href="#main">Saltar al contenido principal</a>
+
+<!-- Lienzo para el rastro de telaraña que sigue al cursor -->
+<canvas id="webTrailCanvas" aria-hidden="true"></canvas>
+
+<!-- ============ NAV ============ -->
+<header class="navbar">
+  <div class="navbar-inner">
+    <a href="#hero" class="nav-logo" aria-label="Ir al inicio">
+      <svg viewBox="0 0 40 40" class="nav-logo-mark" aria-hidden="true">
+        <circle cx="20" cy="20" r="4.5" fill="currentColor"/>
+        <g stroke="currentColor" stroke-width="1.6" fill="none">
+          <path d="M20 20 L20 3"/><path d="M20 20 L33 8"/><path d="M20 20 L38 20"/><path d="M20 20 L33 32"/>
+          <path d="M20 20 L20 37"/><path d="M20 20 L7 32"/><path d="M20 20 L2 20"/><path d="M20 20 L7 8"/>
+          <path d="M11 11 L29 11 M8 20 L32 20 M11 29 L29 29" opacity="0.55"/>
+        </g>
+      </svg>
+      <span class="nav-logo-text">BRAND<br>NEW DAY</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#historia" class="nav-link">Historia</a>
+      <a href="#reparto" class="nav-link">Reparto</a>
+      <a href="#expedientes" class="nav-link">Expedientes</a>
+      <a href="#trailer" class="nav-link">Tráiler</a>
+      <a href="#sentido" class="nav-link">Sentido arácnido</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button id="soundToggle" class="icon-btn" type="button" aria-pressed="false" aria-label="Activar sonido">
+        <svg viewBox="0 0 24 24" class="icon-muted" aria-hidden="true"><path d="M3 10v4h4l5 5V5L7 10H3z" fill="currentColor"/><path d="M16 8l5 8M21 8l-5 8" stroke="currentColor" stroke-width="1.8"/></svg>
+        <svg viewBox="0 0 24 24" class="icon-sound" aria-hidden="true"><path d="M3 10v4h4l5 5V5L7 10H3z" fill="currentColor"/><path d="M15.5 9a4 4 0 010 6M18 6.5a8 8 0 010 11" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
+      </button>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-pressed="false" aria-label="Cambiar entre vigilia nocturna y amanecer">
+        <span class="theme-toggle-track">
+          <span class="theme-toggle-thumb"></span>
+        </span>
+        <span class="theme-toggle-label" id="themeToggleLabel">Vigilia nocturna</span>
+      </button>
+      <button id="navToggle" class="nav-toggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section id="hero" class="hero">
+    <div class="hero-bg hero-bg--night" aria-hidden="true"></div>
+    <div class="hero-bg hero-bg--dawn" aria-hidden="true"></div>
+    <div class="hero-halftone" aria-hidden="true"></div>
+    <svg class="hero-skyline" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
+      <rect x="0" y="120" width="60" height="100"/><rect x="65" y="90" width="45" height="130"/>
+      <rect x="115" y="140" width="70" height="80"/><rect x="190" y="60" width="55" height="160"/>
+      <rect x="250" y="110" width="40" height="110"/><rect x="295" y="150" width="90" height="70"/>
+      <rect x="390" y="40" width="50" height="180"/><rect x="445" y="100" width="65" height="120"/>
+      <rect x="515" y="130" width="45" height="90"/><rect x="565" y="70" width="60" height="150"/>
+      <rect x="630" y="150" width="80" height="70"/><rect x="715" y="95" width="50" height="125"/>
+      <rect x="770" y="30" width="55" height="190"/><rect x="830" y="120" width="60" height="100"/>
+      <rect x="895" y="150" width="75" height="70"/><rect x="975" y="80" width="45" height="140"/>
+      <rect x="1025" y="130" width="65" height="90"/><rect x="1095" y="100" width="50" height="120"/>
+      <rect x="1150" y="150" width="50" height="70"/>
+    </svg>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Universo Cinematográfico Marvel · Fase 6 · Película N.º 38</p>
+      <h1 class="hero-title">
+        <span class="hero-title-line hero-title-line--outline">SPIDER-MAN</span>
+        <span class="hero-title-line hero-title-line--fill">BRAND NEW DAY</span>
+      </h1>
+      <p class="hero-subtitle">El mundo se olvidó de Peter Parker. Él no se olvidó del mundo.</p>
+      <p class="hero-meta">31 DE JULIO DE 2026 · SOLO EN CINES · DIRIGE DESTIN DANIEL CRETTON</p>
+
+      <div class="countdown" id="countdown" aria-label="Cuenta regresiva para el estreno">
+        <div class="countdown-unit"><span class="countdown-value" id="cdDays">00</span><span class="countdown-label">días</span></div>
+        <div class="countdown-unit"><span class="countdown-value" id="cdHours">00</span><span class="countdown-label">horas</span></div>
+        <div class="countdown-unit"><span class="countdown-value" id="cdMin">00</span><span class="countdown-label">min</span></div>
+        <div class="countdown-unit"><span class="countdown-value" id="cdSec">00</span><span class="countdown-label">seg</span></div>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#trailer" class="btn btn-primary">▶ Ver tráiler</a>
+        <a href="#expedientes" class="btn btn-ghost">Abrir expedientes</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- ============ TICKER ============ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item">DIRECTOR: DESTIN DANIEL CRETTON</span>
+      <span class="ticker-item">GUION: CHRIS McKENNA Y ERIK SOMMERS</span>
+      <span class="ticker-item">ESTUDIOS: MARVEL STUDIOS / COLUMBIA PICTURES</span>
+      <span class="ticker-item">DURACIÓN: 2H 25MIN</span>
+      <span class="ticker-item">SECUELA DE NO WAY HOME</span>
+      <span class="ticker-item">ESTRENO: 31 DE JULIO DE 2026</span>
+      <!-- se duplica para el loop infinito -->
+      <span class="ticker-item">DIRECTOR: DESTIN DANIEL CRETTON</span>
+      <span class="ticker-item">GUION: CHRIS McKENNA Y ERIK SOMMERS</span>
+      <span class="ticker-item">ESTUDIOS: MARVEL STUDIOS / COLUMBIA PICTURES</span>
+      <span class="ticker-item">DURACIÓN: 2H 25MIN</span>
+      <span class="ticker-item">SECUELA DE NO WAY HOME</span>
+      <span class="ticker-item">ESTRENO: 31 DE JULIO DE 2026</span>
+    </div>
+  </div>
+
+  <!-- ============ HISTORIA ============ -->
+  <section id="historia" class="story">
+    <div class="story-grid">
+      <div class="story-text">
+        <p class="section-label">La historia</p>
+        <h2 class="section-heading">Cuatro años de silencio</h2>
+        <p class="story-p story-p--drop">Han pasado cuatro años desde el final de <em>No Way Home</em>. Para detener una amenaza que ponía en riesgo a todo el multiverso, Peter le pidió a Doctor Strange que lo borrara de la memoria de absolutamente todos, incluida MJ. Hoy vive solo, patrulla Nueva York a tiempo completo y ve a sus amigos rehacer sus vidas sin él en ellas.</p>
+        <p class="story-p">Esa soledad empieza a transformarlo, literalmente: su cuerpo desarrolla rasgos cada vez más arácnidos que ni él puede explicar. Con la ayuda inesperada de Frank Castle y Bruce Banner, Peter va a tener que enfrentar una amenaza que salta de mente en mente y que casi nadie puede percibir... excepto él.</p>
+        <p class="story-note">El subtítulo <em>Brand New Day</em> retoma el nombre del arco de cómics de 2008 escrito por Dan Slott y dibujado por Steven McNiven, publicado en <em>The Amazing Spider-Man</em> #546.</p>
+      </div>
+
+      <div class="story-scan">
+        <div class="scan-header">
+          <span class="scan-tag">CONTROL DE DAÑOS</span>
+          <h3>Informe de bioseguimiento</h3>
+          <p class="scan-sub">Sujeto: SPIDER-MAN · Estado: en observación</p>
+        </div>
+        <div class="scan-figure" aria-hidden="true">
+          <div class="scan-line"></div>
+          <svg viewBox="0 0 120 200">
+            <circle cx="60" cy="34" r="24"/>
+            <path d="M30 190 L34 90 Q60 70 86 90 L90 190 Z"/>
+            <line x1="60" y1="0" x2="60" y2="200" class="scan-crosshair"/>
+            <line x1="0" y1="60" x2="120" y2="60" class="scan-crosshair"/>
+          </svg>
+        </div>
+        <div class="scan-toggle-row">
+          <span>Antes</span>
+          <button class="scan-toggle" id="scanToggle" type="button" role="switch" aria-checked="false" aria-label="Alternar entre estado anterior y posterior a la mutación">
+            <span class="scan-toggle-thumb"></span>
+          </button>
+          <span>Después</span>
+        </div>
+        <dl class="scan-data" id="scanData">
+          <div class="scan-row"><dt>Visión</dt><dd data-before="Estándar" data-after="Pigmentación ocular en aumento">Estándar</dd></div>
+          <div class="scan-row"><dt>Reflejos</dt><dd data-before="Sobrehumanos" data-after="Fuera de escala conocida">Sobrehumanos</dd></div>
+          <div class="scan-row"><dt>Adherencia</dt><dd data-before="Manos y pies" data-after="¿Expandida a todo el cuerpo?">Manos y pies</dd></div>
+          <div class="scan-row"><dt>Producción de seda</dt><dd data-before="Mecánica (lanzadores)" data-after="Posible origen orgánico">Mecánica (lanzadores)</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REPARTO ============ -->
+  <section id="reparto" class="cast">
+    <p class="section-label section-label--center">Reparto</p>
+    <h2 class="section-heading section-heading--center">Caras conocidas, en un mundo que ya no las reconoce</h2>
+    <p class="section-sub">Tocá cada credencial para ver más.</p>
+
+    <div class="cast-grid" id="castGrid">
+      <!-- las cards se repiten con la misma estructura -->
+      <article class="cast-card">
+        <div class="cast-card-inner">
+          <div class="cast-card-face cast-card-front">
+            <span class="cast-badge">N.º 01</span>
+            <h3>Tom Holland</h3>
+            <p>Peter Parker / Spider-Man</p>
+          </div>
+          <div class="cast-card-face cast-card-back">
+            <p>El estudiante que se convirtió en héroe de tiempo completo... y que ahora nadie recuerda.</p>
+          </div>
+        </div>
+      </article>
+      <article class="cast-card">
+        <div class="cast-card-inner">
+          <div class="cast-card-face cast-card-front">
+            <span class="cast-badge">N.º 02</span>
+            <h3>Zendaya</h3>
+            <p>MJ (Michelle Jones-Watson)</p>
+          </div>
+          <div class="cast-card-face cast-card-back">
+            <p>La ex de Peter. No tiene ni idea de todo lo que vivieron juntos.</p>
+          </div>
+        </div>
+      </article>
+      <article class="cast-card">
+        <div class="cast-card-inner">
+          <div class="cast-card-face cast-card-front">
+            <span class="cast-badge">N.º 03</span>
+            <h3>Jacob Batalon</h3>
+            <p>Ned Leeds</p>
+          </div>
+          <div class="cast-card-face cast-card-back">
+            <p>El mejor amigo de toda la vida de Peter, que hoy ni sabe que existe.</p>
+          </div>
+        </div>
+      </article>
+      <article class="cast-card">
+        <div class="cast-card-inner">
+          <div class="cast-card-face cast-card-front">
+            <span class="cast-badge">N.º 04</span>
+            <h3>Jon Bernthal</h3>
+            <p>Frank Castle / Punisher</p>
+          </div>
+          <div class="cast-card-face cast-card-back">
+            <p>Un aliado tan letal como poco ortodoxo para el nuevo Peter.</p>
+          </div>
+        </div>
+      </article>
+      <article class="cast-card">
+        <div class="cast-card-inner">
+          <div class="cast-card-face cast-card-front">
+            <span class="cast-badge">N.º 05</span>
+            <h3>Mark Ruffalo</h3>
+            <p>Bruce Banner / Hulk</p>
+          </div>
+          <div class="cast-card-face cast-card-back">
+            <p>Vengador fundador y, ahora también, parte de la red de contención de Peter.</p>
+          </div>
+        </div>
+      </article>
+      <article class="cast-card">
+        <div class="cast-card-inner">
+          <div class="cast-card-face cast-card-front">
+            <span class="cast-badge">N.º 06</span>
+            <h3>Michael Mando</h3>
+            <p>Mac Gargan / Escorpión</p>
+          </div>
+          <div class="cast-card-face cast-card-back">
+            <p>El villano que Spider-Man ya había cruzado en Homecoming, ahora completamente evolucionado.</p>
+          </div>
+        </div>
+      </article>
+      <article class="cast-card">
+        <div class="cast-card-inner">
+          <div class="cast-card-face cast-card-front">
+            <span class="cast-badge">N.º 07</span>
+            <h3>Tramell Tillman</h3>
+            <p>Bill Metzger</p>
+          </div>
+          <div class="cast-card-face cast-card-back">
+            <p>Director del Departamento de Control de Daños. Vigila a todo sujeto con superpoderes, Spider-Man incluido.</p>
+          </div>
+        </div>
+      </article>
+      <article class="cast-card cast-card--mystery">
+        <div class="cast-card-inner">
+          <div class="cast-card-face cast-card-front">
+            <span class="cast-badge">N.º 08</span>
+            <h3>Sadie Sink</h3>
+            <p>Papel sin confirmar</p>
+          </div>
+          <div class="cast-card-face cast-card-back">
+            <p>La gran incógnita del elenco. Su personaje todavía no fue revelado oficialmente.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ EXPEDIENTES / VILLANOS ============ -->
+  <section id="expedientes" class="files">
+    <p class="section-label section-label--center">Control de daños · Clasificado</p>
+    <h2 class="section-heading section-heading--center">Expedientes de amenaza</h2>
+    <p class="section-sub">El Departamento de Control de Daños mantiene un registro de todo sujeto con superpoderes activo en Nueva York. Tocá un expediente para desclasificarlo.</p>
+
+    <div class="files-grid" id="filesGrid">
+      <button class="file-card" type="button">
+        <span class="file-top"><span class="file-tag">AMENAZA ARMADA</span><span class="file-id">EXP-014</span></span>
+        <span class="file-name">Escorpión</span>
+        <span class="file-redacted" aria-hidden="true">████████████</span>
+        <span class="file-details">Mac Gargan. Cola mecánica de combate. Antiguo rival de la etapa de Homecoming, hoy mucho más peligroso.</span>
+      </button>
+      <button class="file-card" type="button">
+        <span class="file-top"><span class="file-tag">ORGANIZACIÓN</span><span class="file-id">EXP-021</span></span>
+        <span class="file-name">La Mano</span>
+        <span class="file-redacted" aria-hidden="true">████████████</span>
+        <span class="file-details">Orden de asesinos ninja. Combate cuerpo a cuerpo de alto riesgo, en gran número.</span>
+      </button>
+      <button class="file-card" type="button">
+        <span class="file-top"><span class="file-tag">AGENTE DE CAMPO</span><span class="file-id">EXP-033</span></span>
+        <span class="file-name">Tarántula</span>
+        <span class="file-redacted" aria-hidden="true">████████████</span>
+        <span class="file-details">Combatiente ágil con cuchillas retráctiles en las botas. Aparición breve pero confirmada.</span>
+      </button>
+      <button class="file-card" type="button">
+        <span class="file-top"><span class="file-tag">MERCENARIO</span><span class="file-id">EXP-047</span></span>
+        <span class="file-name">Boomerang</span>
+        <span class="file-redacted" aria-hidden="true">████████████</span>
+        <span class="file-details">Aparición breve en el material promocional. Patrones de ataque erráticos a distancia.</span>
+      </button>
+      <button class="file-card" type="button">
+        <span class="file-top"><span class="file-tag">SUJETO DE INTERÉS</span><span class="file-id">EXP-052</span></span>
+        <span class="file-name">Ramrod</span>
+        <span class="file-redacted" aria-hidden="true">████████████</span>
+        <span class="file-details">Primeras imágenes reveladas en promos de TV. Expediente todavía incompleto.</span>
+      </button>
+      <button class="file-card" type="button">
+        <span class="file-top"><span class="file-tag">BAJO INVESTIGACIÓN</span><span class="file-id">EXP-058</span></span>
+        <span class="file-name">Tombstone</span>
+        <span class="file-redacted" aria-hidden="true">████████████</span>
+        <span class="file-details">Lonnie Lincoln. Presencia confirmada en el elenco, alcance del personaje aún reservado.</span>
+      </button>
+      <button class="file-card file-card--mystery" type="button">
+        <span class="file-top"><span class="file-tag">CLASIFICACIÓN DESCONOCIDA</span><span class="file-id">EXP-000</span></span>
+        <span class="file-name">Expediente 0</span>
+        <span class="file-redacted" aria-hidden="true">████████████</span>
+        <span class="file-details">Entidad que salta de mente en mente. Nadie en el departamento puede verla. Un solo sujeto de vigilancia reporta poder percibirla: Spider-Man.</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ TRAILER ============ -->
+  <section id="trailer" class="trailer">
+    <p class="section-label section-label--center">En pantalla</p>
+    <h2 class="section-heading section-heading--center">Mirá el tráiler oficial</h2>
+    <div class="trailer-frame">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/62bIsvRcPv0"
+        title="Spider-Man: Brand New Day — Tráiler oficial en español"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <p class="trailer-fallback">¿No carga? <a href="https://www.youtube.com/watch?v=62bIsvRcPv0" target="_blank" rel="noopener">Mirálo directo en YouTube</a>.</p>
+  </section>
+
+  <!-- ============ MINIJUEGO: SENTIDO ARÁCNIDO ============ -->
+  <section id="sentido" class="game">
+    <p class="section-label section-label--center">Poné a prueba tu instinto</p>
+    <h2 class="section-heading section-heading--center">Sentido arácnido</h2>
+    <p class="section-sub">Van a aparecer amenazas por toda la cuadra. Tocalas antes de que se escapen. Perdés una vida por cada una que se te pase.</p>
+
+    <div class="game-hud">
+      <div class="game-hud-item"><span class="game-hud-label">Puntaje</span><span class="game-hud-value" id="gameScore">0</span></div>
+      <div class="game-hud-item"><span class="game-hud-label">Vidas</span><span class="game-hud-value" id="gameLives">🕷️🕷️🕷️</span></div>
+      <div class="game-hud-item"><span class="game-hud-label">Mejor puntaje</span><span class="game-hud-value" id="gameBest">0</span></div>
+    </div>
+
+    <div class="game-board" id="gameBoard">
+      <p class="game-msg" id="gameMsg">Presioná «Empezar» y estate atento a la cuadra.</p>
+      <button class="btn btn-primary game-start" id="gameStart" type="button">Empezar</button>
+    </div>
+  </section>
+
+  <!-- ============ CTA FINAL / DAWN ============ -->
+  <section id="brand-new-day" class="dawn-cta">
+    <div class="dawn-cta-inner">
+      <p class="section-label">Elegí tu Brand New Day</p>
+      <h2 class="dawn-cta-heading">Ya casi. Faltan pocos días.</h2>
+      <p class="dawn-cta-sub">Usá el interruptor de arriba para pasar de la vigilia nocturna al amanecer — y reservá tu entrada antes de que la ciudad se llene de expedientes nuevos.</p>
+      <a href="https://www.marvel.com/movies/spider-man-brand-new-day" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Reservá tu entrada</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <p class="nav-logo-text nav-logo-text--footer">BRAND NEW DAY</p>
+      <p class="footer-disclaimer">Este es un sitio hecho por un fan, sin fines de lucro y sin afiliación oficial con Marvel Studios, Sony Pictures Entertainment o The Walt Disney Company. Spider-Man y los personajes relacionados son marcas registradas de Marvel Characters, Inc. Toda la información se basa en material promocional publicado oficialmente.</p>
+    </div>
+    <div class="footer-links">
+      <p class="footer-links-title">Enlaces oficiales</p>
+      <a href="https://www.marvel.com/movies/spider-man-brand-new-day" target="_blank" rel="noopener">Sitio oficial de Marvel</a>
+      <a href="https://www.youtube.com/watch?v=62bIsvRcPv0" target="_blank" rel="noopener">Tráiler en YouTube</a>
+    </div>
+  </div>
+  <p class="footer-fine">Hecho con 🕸️ para los fans de tu vecino amigable.</p>
+</footer>
+
+<!-- ============ ALERTA SENTIDO ARÁCNIDO ============ -->
+<div class="spider-alert" id="spiderAlert" role="status" aria-live="polite">
+  <span class="spider-alert-icon" aria-hidden="true">⚠</span>
+  <div>
+    <p class="spider-alert-title">¡Sentido arácnido activado!</p>
+    <p class="spider-alert-text" id="spiderAlertText"></p>
+  </div>
+  <button class="spider-alert-close" id="spiderAlertClose" type="button" aria-label="Cerrar aviso">✕</button>
+</div>
+
+<button class="back-to-top" id="backToTop" type="button" aria-label="Volver arriba">↑</button>
+
+<script src="js/script.js"></script>
+</body>
+</html>
