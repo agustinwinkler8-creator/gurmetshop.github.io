@@ -1,0 +1,689 @@
+/* ============================================
+   GurmetShop — hoja de estilos
+   Sistema visual: cartel de gira de rock,
+   colores tomados directamente del logo.
+   ============================================ */
+
+:root {
+  --negro: #0d0d0d;
+  --negro-alt: #18151b;
+  --negro-alt-2: #201c24;
+  --dorado: #f5e28a;
+  --dorado-fuerte: #ebc94a;
+  --rojo: #f2434e;
+  --rojo-fuerte: #d92e3d;
+  --crema: #efeae0;
+  --gris: #948d9a;
+  --gris-linea: rgba(239, 234, 224, 0.14);
+  --verde-wsp: #2fbf71;
+  --verde-wsp-fuerte: #26a25f;
+
+  --fuente-display: "Rye", serif;
+  --fuente-cuerpo: "Archivo", system-ui, -apple-system, sans-serif;
+
+  --ancho-maximo: 1180px;
+  --radio: 10px;
+  --sombra-poster: 0 18px 40px rgba(0, 0, 0, 0.55);
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  background: var(--negro);
+  color: var(--crema);
+  font-family: var(--fuente-cuerpo);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-family: var(--fuente-display);
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+  color: var(--dorado);
+  letter-spacing: 0.01em;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+.container {
+  max-width: var(--ancho-maximo);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--dorado);
+  color: var(--negro);
+  padding: 12px 18px;
+  z-index: 1000;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  left: 12px;
+  top: 12px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--dorado);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---------- Textura de grano sutil ---------- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2000;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: repeating-linear-gradient(0deg, #fff 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, #fff 0 1px, transparent 1px 3px);
+}
+
+/* ---------- Eyebrow / etiquetas ---------- */
+.eyebrow {
+  font-family: var(--fuente-cuerpo);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  color: var(--rojo);
+  margin: 0 0 0.9em;
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.98rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn .icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.btn-primary {
+  background: var(--dorado);
+  color: var(--negro);
+}
+
+.btn-primary:hover {
+  background: var(--dorado-fuerte);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(245, 226, 138, 0.25);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--gris-linea);
+  color: var(--crema);
+}
+
+.btn-outline:hover {
+  border-color: var(--dorado);
+  color: var(--dorado);
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+  background: var(--verde-wsp);
+  color: #06210f;
+}
+
+.btn-whatsapp:hover {
+  background: var(--verde-wsp-fuerte);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(47, 191, 113, 0.3);
+}
+
+.btn-lg {
+  padding: 17px 34px;
+  font-size: 1.05rem;
+}
+
+.btn-nav {
+  padding: 10px 18px;
+  font-size: 0.88rem;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  background: rgba(13, 13, 13, 0.86);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--gris-linea);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.logo-link {
+  display: block;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  height: 42px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links a:not(.btn) {
+  font-weight: 600;
+  font-size: 0.94rem;
+  position: relative;
+  padding: 4px 0;
+}
+
+.nav-links a:not(.btn)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--rojo);
+  transition: width 0.2s ease;
+}
+
+.nav-links a:not(.btn):hover::after {
+  width: 100%;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid var(--gris-linea);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin: 0 auto;
+  background: var(--dorado);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  padding: 96px 0 70px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  width: 900px;
+  height: 900px;
+  max-width: 160vw;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(245, 226, 138, 0.16) 0%, rgba(242, 67, 78, 0.08) 42%, transparent 70%);
+  animation: resplandor 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes resplandor {
+  0%, 100% { opacity: 0.75; transform: translateX(-50%) scale(1); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.06); }
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero .eyebrow {
+  color: var(--dorado);
+}
+
+.hero-logo {
+  width: min(560px, 82vw);
+  height: auto;
+  margin: 0 auto;
+}
+
+.hero-tagline {
+  font-family: var(--fuente-display);
+  color: var(--crema);
+  font-size: clamp(1.5rem, 4vw, 2.3rem);
+  margin: 0.5em 0 0.4em;
+}
+
+.hero-sub {
+  max-width: 560px;
+  color: var(--gris);
+  font-size: 1.02rem;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.6em;
+}
+
+/* ---------- Divisor "entrada de tour" ---------- */
+.perforation {
+  position: relative;
+  height: 0;
+  margin: 64px 0 0;
+  border-top: 3px dashed var(--gris-linea);
+}
+
+.perforation::before,
+.perforation::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--negro);
+  border: 3px dashed var(--gris-linea);
+  transform: translateY(-50%);
+}
+
+.perforation::before {
+  left: -11px;
+}
+
+.perforation::after {
+  right: -11px;
+}
+
+/* ---------- Secciones generales ---------- */
+section {
+  padding: 64px 0;
+}
+
+section h2 {
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+}
+
+.section-sub {
+  max-width: 640px;
+  color: var(--gris);
+}
+
+/* ---------- Sobre nosotros ---------- */
+.about-text {
+  max-width: 700px;
+  font-size: 1.05rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 1.6em;
+}
+
+.chip {
+  border: 2px solid var(--rojo);
+  color: var(--crema);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Productos ---------- */
+.brand-list {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  margin-top: 2.5em;
+}
+
+.brand {
+  display: grid;
+  grid-template-columns: minmax(220px, 340px) 1fr;
+  gap: 44px;
+  align-items: center;
+}
+
+.brand--reverse {
+  grid-template-columns: 1fr minmax(220px, 340px);
+}
+
+.brand--reverse .brand-photo {
+  order: 2;
+}
+
+.brand--reverse .brand-content {
+  order: 1;
+}
+
+.brand-photo {
+  background: var(--negro-alt);
+  border: 3px solid var(--dorado);
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: var(--sombra-poster);
+  transform: rotate(-2.2deg);
+  transition: transform 0.25s ease;
+}
+
+.brand:nth-child(even) .brand-photo {
+  transform: rotate(2.2deg);
+}
+
+.brand-photo:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.brand-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+
+.brand-tag {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--negro);
+  background: var(--dorado);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 0.8em;
+}
+
+.brand-content h3 {
+  font-size: 1.7rem;
+  margin-bottom: 0.35em;
+}
+
+.brand-sub {
+  font-family: var(--fuente-cuerpo);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--gris);
+  letter-spacing: 0;
+}
+
+.variant-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 1em 0;
+}
+
+.variant-pills li {
+  background: var(--negro-alt-2);
+  border: 1px solid var(--gris-linea);
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 0.88rem;
+  color: var(--crema);
+}
+
+.variant-pills li strong {
+  color: var(--dorado);
+}
+
+.brand-meta {
+  color: var(--gris);
+  font-size: 0.88rem;
+  margin-top: 1em;
+  margin-bottom: 0;
+}
+
+/* ---------- Contacto ---------- */
+.contact {
+  text-align: center;
+}
+
+.contact .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact p {
+  max-width: 560px;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1.4em 0 1.6em;
+}
+
+.contact-note {
+  color: var(--gris);
+  font-size: 0.9rem;
+  max-width: 520px;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--gris-linea);
+  padding: 32px 0;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-logo {
+  font-family: var(--fuente-display);
+  color: var(--dorado);
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.footer-copy {
+  color: var(--gris);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.footer-contact {
+  font-weight: 700;
+  color: var(--crema);
+  border: 1px solid var(--gris-linea);
+  padding: 8px 16px;
+  border-radius: 999px;
+}
+
+.footer-contact:hover {
+  border-color: var(--verde-wsp);
+  color: var(--verde-wsp);
+}
+
+/* ---------- Animación de aparición al hacer scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .brand,
+  .brand--reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-photo,
+  .brand--reverse .brand-photo {
+    order: 1;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .brand-content,
+  .brand--reverse .brand-content {
+    order: 2;
+    text-align: center;
+  }
+
+  .variant-pills,
+  .contact-actions,
+  .hero-ctas {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 720px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 67px;
+    left: 0;
+    right: 0;
+    background: var(--negro);
+    border-bottom: 1px solid var(--gris-linea);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 18px 24px 26px;
+    gap: 18px;
+    transform: translateY(-130%);
+    opacity: 0;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .nav-links.is-open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .nav-links a:not(.btn) {
+    font-size: 1.05rem;
+  }
+
+  .btn-nav {
+    justify-content: center;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 76px 0 54px;
+  }
+
+  section {
+    padding: 48px 0;
+  }
+
+  .btn-lg {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .contact-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
